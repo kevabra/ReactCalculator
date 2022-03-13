@@ -355,14 +355,14 @@ class Calculator extends React.Component {
     // when an operation is clicked, that is when we push the value of current number to the numbers list and then reset current number 0
     // also be sure to push the operation to the operations list
     else if (event.target.id == "add") {
-      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*' || this.state.currentNumber == '-') {
         let curr = '+';
         let newOperations = [...this.state.operations];
         newOperations.pop();
         newOperations.push(curr);
         this.setState({
           numbers: this.state.numbers,
-          operations: newNumbers,
+          operations: newOperations,
           currentNumber: curr
         });
         return;
@@ -411,7 +411,7 @@ class Calculator extends React.Component {
       }
     }
     else if (event.target.id == "divide") {
-      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*' || this.state.currentNumber == '-') {
         let curr = '/';
         let newOperations = [...this.state.operations];
         newOperations.pop();
@@ -434,7 +434,7 @@ class Calculator extends React.Component {
       });
     }
     else if (event.target.id == "multiply") {
-      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*' || this.state.currentNumber == '-') {
         let curr = '*';
         let newOperations = [...this.state.operations];
         newOperations.pop();
