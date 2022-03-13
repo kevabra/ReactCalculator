@@ -9,7 +9,8 @@ class Calculator extends React.Component {
     this.state = {
       numbers: [],
       operations: [],
-      currentNumber: "0"
+      currentNumber: "0",
+      isNegative: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -41,7 +42,8 @@ class Calculator extends React.Component {
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
-          currentNumber: curr
+          currentNumber: curr,
+          isNegative: this.state.isNegative
         });
       }
     }
@@ -51,7 +53,8 @@ class Calculator extends React.Component {
       this.setState({
         numbers: [],
         operations: [],
-        currentNumber: "0"
+        currentNumber: "0",
+        isNegative: false
       });
     }
 
@@ -62,13 +65,18 @@ class Calculator extends React.Component {
       this.setState({
         numbers: this.state.numbers,
         operations: this.state.operations,
-        currentNumber: curr
+        currentNumber: curr,
+        isNegative: this.state.isNegative
       });
     }
     if (event.target.id == "one") {
       // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "1";
+        if (this.state.currentNumber == '0') {
+          curr = "1";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -89,9 +97,11 @@ class Calculator extends React.Component {
     }
 
     else if (event.target.id == 'two') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "2";
+        if (this.state.currentNumber == '0') {
+          curr = "2";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -99,6 +109,7 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "2" : this.state.currentNumber + "2";
@@ -111,9 +122,11 @@ class Calculator extends React.Component {
     }
 
     else if (event.target.id == 'three') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "3";
+        if (this.state.currentNumber == '0') {
+          curr = "3";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -121,6 +134,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "3" : this.state.currentNumber + "3";
@@ -132,9 +147,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'four') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "4";
+        if (this.state.currentNumber == '0') {
+          curr = "4";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -142,6 +159,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "4" : this.state.currentNumber + "4";
@@ -153,9 +172,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'five') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "5";
+        if (this.state.currentNumber == '0') {
+          curr = "5";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -163,6 +184,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "5" : this.state.currentNumber + "5";
@@ -174,9 +197,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'six') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "6";
+        if (this.state.currentNumber == '0') {
+          curr = "6";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -184,6 +209,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "6" : this.state.currentNumber + "6";
@@ -195,9 +222,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'seven') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "7";
+        if (this.state.currentNumber == '0') {
+          curr = "7";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -205,6 +234,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "7" : this.state.currentNumber + "7";
@@ -216,9 +247,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'eight') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "8";
+        if (this.state.currentNumber == '0') {
+          curr = "8";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -226,6 +259,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "8" : this.state.currentNumber + "8";
@@ -237,9 +272,11 @@ class Calculator extends React.Component {
         console.log(curr);
     }
     else if (event.target.id == 'nine') {
-      // if chain of numbers doesn't exist interpret as negative as a sign
-      if (this.state.numbers.length == 0 && this.state.currentNumber == "-") {
+      if (this.state.numbers.length == 0 || this.state.isNegative) {
         let curr = this.state.currentNumber + "9";
+        if (this.state.currentNumber == '0') {
+          curr = "9";
+        }
         this.setState({
           numbers: this.state.numbers,
           operations: this.state.operations,
@@ -247,6 +284,8 @@ class Calculator extends React.Component {
         });
         return;
       }
+      // if chain of numbers doesn't exist interpret as negative as a sign
+      
       // if a chain of numbers exist then interpret as operation
       
         let curr = (condition) ? "9" : this.state.currentNumber + "9";
@@ -316,6 +355,18 @@ class Calculator extends React.Component {
     // when an operation is clicked, that is when we push the value of current number to the numbers list and then reset current number 0
     // also be sure to push the operation to the operations list
     else if (event.target.id == "add") {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+        let curr = '+';
+        let newOperations = [...this.state.operations];
+        newOperations.pop();
+        newOperations.push(curr);
+        this.setState({
+          numbers: this.state.numbers,
+          operations: newNumbers,
+          currentNumber: curr
+        });
+        return;
+      }
       let newOperations = [...this.state.operations, "+"];
       let curr = this.state.currentNumber;
       let newNumbers = [...this.state.numbers, curr];
@@ -328,6 +379,16 @@ class Calculator extends React.Component {
     }
     else if (event.target.id == "subtract") {
       // if a chain of numbers does exist, then that negative will be interpreted as an operation
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '*' || this.state.currentNumber == '/' || this.state.currentNumber == '-') {
+        let curr = '-';
+        this.setState({
+          numbers: this.state.numbers,
+          operations: this.state.operations,
+          currentNumber: curr,
+          isNegative: true
+        });
+        return;
+      }
       if (this.state.currentNumber != 0) {
         let newOperations = [...this.state.operations, "-"];
         let curr = this.state.currentNumber;
@@ -350,6 +411,18 @@ class Calculator extends React.Component {
       }
     }
     else if (event.target.id == "divide") {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+        let curr = '/';
+        let newOperations = [...this.state.operations];
+        newOperations.pop();
+        newOperations.push(curr);
+        this.setState({
+          numbers: this.state.numbers,
+          operations: newOperations,
+          currentNumber: curr
+        });
+        return;
+      }
       let newOperations = [...this.state.operations, "/"];
       let curr = this.state.currentNumber;
       let newNumbers = [...this.state.numbers, curr];
@@ -361,6 +434,18 @@ class Calculator extends React.Component {
       });
     }
     else if (event.target.id == "multiply") {
+      if (this.state.currentNumber == '+' || this.state.currentNumber == '/' || this.state.currentNumber == '*') {
+        let curr = '*';
+        let newOperations = [...this.state.operations];
+        newOperations.pop();
+        newOperations.push(curr);
+        this.setState({
+          numbers: this.state.numbers,
+          operations: newOperations,
+          currentNumber: curr
+        });
+        return;
+      }
       let newOperations = [...this.state.operations, "*"];
       let curr = this.state.currentNumber;
       let newNumbers = [...this.state.numbers, curr];
@@ -432,5 +517,4 @@ class Calculator extends React.Component {
     );
   }
 }
-
 export default Calculator;
